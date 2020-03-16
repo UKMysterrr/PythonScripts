@@ -1,18 +1,33 @@
 #Insertion sort / Mitchell Docherty
 import time
 
-#List of Names to be sorted
-namelist = ["John", "Dave", "Mary", "Peter", "Jane", "Adam", "Barry", "Amanda"]
-#Make a Definition
-def insertion(temp):
-    for i in range(1, len(temp)): #Looks in the list
-        while temp[i-1] > temp[i] and temp[i-1]: #If the value is on the wrong side,
-            temp[i-1], temp[i] = temp[i], temp[i-1] #It switches
-            print(temp) #Prints as it goes
-            time.sleep(1) #Waits a second for show purposes
+Numlist = ['45', '63', '73', '23', '81', '18']
 
 
-print (namelist) #Prints before command
-print("")
-insertion(namelist) #Runs "Insertion"
-print (namelist) #Prints Aftermath
+def InsertionSort(Numlist):
+
+    for j in range(1, len(Numlist)):
+
+        print("***************** LOOP", j, "*********************\n")
+
+        key = Numlist[j]
+        i = j - 1
+        print("i:", i, " |  A[i]:", Numlist[i], " |  key:", key, "\n")
+        print("IS i:", i, ">= 0 and", Numlist[i], ">", key, "?", "\n")
+
+        while i >= 0 and Numlist[i] > key:
+
+            print("TRUE:", i, ">= 0 and", Numlist[i], ">", key, "\n")
+
+            Numlist[i + 1] = Numlist[i]  # left cell switches places with right cell
+            i = i - 1
+            print(Numlist)
+            print("\n")
+            time.sleep(1)
+        Numlist[i + 1] = key
+
+    print("\n\n")
+    print("=================== END =====================")
+
+
+InsertionSort(Numlist)
